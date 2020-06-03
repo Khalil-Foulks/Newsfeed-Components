@@ -38,6 +38,7 @@ function menuMaker(array){
   const menu = document.createElement('div')
   const list = document.createElement('ul')
 
+  body2.appendChild(menu)
   menu.appendChild(list)
   menu.classList.add('menu')
   
@@ -57,5 +58,5 @@ function menuMaker(array){
 }
 
 
-const test2 = menuMaker(menuItems)
-body2.appendChild(test2)
+const item = menuMaker(menuItems)
+body2.appendChild(item)
