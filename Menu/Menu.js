@@ -38,10 +38,10 @@ function menuMaker(array){
   const menu = document.createElement('div')
   const list = document.createElement('ul')
 
-  body2.appendChild(menu)
   menu.appendChild(list)
   menu.classList.add('menu')
   
+  menuButton.textContent = 'assets/menu.png'
   menuItems.forEach(element => {
     const test = document.createElement('li')
     test.textContent = element
@@ -58,5 +58,8 @@ function menuMaker(array){
 }
 
 
-const item = menuMaker(menuItems)
-body2.appendChild(item)
+body2.appendChild(menuMaker(menuItems))
+
+// menuButton.addEventListener('click', event => {
+//   menu.classList.toggle('menu--open')
+// })
