@@ -111,3 +111,37 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(articleData){
+  const article = document.createElement('div')
+  const articleH2 = document.createElement('h2')
+  const articleDate = document.createElement('p')
+  const articlePara1 = document.createElement('p')
+  const articlePara2 = document.createElement('p')
+  const articlePara3 = document.createElement('p')
+  const articleButton = document.createElement('span')
+
+  article.appendChild(articleH2)
+  article.appendChild(articleDate)
+  article.appendChild(articlePara1)
+  article.appendChild(articlePara2)
+  article.appendChild(articlePara3)
+  article.appendChild(articleButton)
+
+  article.classList.add('article')
+  articleDate.classList.add('date')
+  articleButton.classList.add('expandButton')
+
+  articleH2.textContent = articleData.title
+  articleDate.textContent = articleData.date
+  articlePara1.textContent = articleData.firstParagraph
+  articlePara2.textContent = articleData.secondParagraph
+  articlePara3.textContent = articleData.thirdParagraph
+
+  return article;
+}
+
+
+//--------------------------------------------------------------------Testing------------------------------------------------------------------------
+const testArticle = articleMaker({title:'foo', data:'nov 26 1993', firstParagraph:'gdfasfas',secondParagraph:'rwesdfa',thirdParagraph:'afsdafa'})
+console.log(testArticle)
