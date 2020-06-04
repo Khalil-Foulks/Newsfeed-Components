@@ -41,7 +41,6 @@ function menuMaker(array){
   menu.appendChild(list)
   menu.classList.add('menu')
   
-  menuButton.textContent = 'assets/menu.png'
   menuItems.forEach(element => {
     const test = document.createElement('li')
     test.textContent = element
@@ -57,9 +56,4 @@ function menuMaker(array){
 
 }
 
-
 body2.appendChild(menuMaker(menuItems))
-
-// menuButton.addEventListener('click', event => {
-//   menu.classList.toggle('menu--open')
-// })
