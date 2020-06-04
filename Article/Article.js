@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Test Article 1',
+    date: 'Jan 31st, 1990',
+    firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis lectus nulla at volutpat diam ut venenatis tellus. Sed turpis tincidunt id aliquet risus feugiat in ante. Enim facilisis gravida neque convallis a cras semper auctor.`,
+
+    secondParagraph: `Dignissim enim sit amet venenatis urna. Adipiscing bibendum est ultricies integer quis auctor. Non nisi est sit amet. A cras semper auctor neque. Venenatis cras sed felis eget velit aliquet sagittis id. Sed velit dignissim sodales ut eu sem integer vitae justo. Nunc non blandit massa enim nec dui nunc mattis. Viverra suspendisse potenti nullam ac. Ac ut consequat semper viverra nam libero justo. Id diam maecenas ultricies mi eget mauris. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. `,
+
+    thirdParagraph: `Ac auctor augue mauris augue neque gravida in fermentum et. Auctor eu augue ut lectus arcu bibendum. Pretium lectus quam id leo in. Convallis tellus id interdum velit laoreet id donec. Adipiscing bibendum est ultricies integer quis auctor elit sed. Tincidunt nunc pulvinar sapien et ligula ullamcorper. Arcu non sodales neque sodales. Urna molestie at elementum eu facilisis. Sagittis id consectetur purus ut faucibus. Dictumst vestibulum rhoncus est pellentesque elit. Morbi tincidunt augue interdum velit euismod in pellentesque massa.`
   }
 ];
 
@@ -111,3 +120,46 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+const body = document.querySelector('body')
+
+function articleMaker(articleDataObj){
+  const article = document.createElement('div')
+  const articleH2 = document.createElement('h2')
+  const articleDate = document.createElement('p')
+  const articlePara1 = document.createElement('p')
+  const articlePara2 = document.createElement('p')
+  const articlePara3 = document.createElement('p')
+  const articleButton = document.createElement('span')
+
+  article.appendChild(articleH2)
+  article.appendChild(articleDate)
+  article.appendChild(articlePara1)
+  article.appendChild(articlePara2)
+  article.appendChild(articlePara3)
+  article.appendChild(articleButton)
+
+  article.classList.add('article')
+  articleDate.classList.add('date')
+  articleButton.classList.add('expandButton')
+
+  articleH2.textContent = articleDataObj.title
+  articleDate.textContent = articleDataObj.date
+  articlePara1.textContent = articleDataObj.firstParagraph
+  articlePara2.textContent = articleDataObj.secondParagraph
+  articlePara3.textContent = articleDataObj.thirdParagraph
+  articleButton.textContent = 'Click Here to Read The Article'
+
+  articleButton.addEventListener('click', event => {
+  article.classList.toggle('article-open')
+  })
+  return article;
+}
+
+data.forEach(articleDataObj => {
+  const article = articleMaker(articleDataObj)
+  body.appendChild(article)
+});
+
+//--------------------------------------------------------------------Testing------------------------------------------------------------------------
+// const testArticle = articleMaker({title:'foo', date:'nov 26 1993', firstParagraph:'gdfasfas',secondParagraph:'rwesdfa',thirdParagraph:'afsdafa'})
+// console.log(testArticle)
